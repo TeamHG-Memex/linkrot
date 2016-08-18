@@ -8,5 +8,5 @@ like this to crontab::
 
     0 */2 * * * /usr/bin/python3 /home/ubuntu/linkrot.py /home/ubuntu/urls.txt /home/ubuntu/status.jl
 
-To analyze the results check `Link Status <notebooks/Link Status.ipynb>`_
+To analyze the results check `Link Status <notebooks/Link%20Status.ipynb>`_
 notebook.
