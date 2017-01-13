@@ -68,6 +68,7 @@ if __name__ == '__main__':
 
     cp = CrawlerProcess(dict(
         ROBOTSTXT_OBEY=False,
+        CONCURRENT_REQUESTS_PER_IP=1,
         CONCURRENT_REQUESTS=48,
         DOWNLOAD_DELAY=2,
         MEMUSAGE_ENABLED=True,
