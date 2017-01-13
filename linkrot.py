@@ -9,6 +9,10 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.url import add_http_if_no_scheme
 from scrapy.http.response import Response
+try:
+    import soft404
+except ImportError:
+    soft404 = None
 
 
 def read_urls(fp):
@@ -37,7 +41,7 @@ class LinkrotSpider(scrapy.Spider):
                 )
 
     def parse(self, response: Response):
-        yield {
+        item = {
             'url': response.meta['url'],
             'crawl': response.meta['start'],
             'crawled_url': response.url,
@@ -45,6 +49,9 @@ class LinkrotSpider(scrapy.Spider):
             'size': len(response.body),
             'crawled_at': time.time(),
         }
+        if soft404 is not None:
+            item['soft404'] = soft404.probability(response.text)
+        yield item
 
     def parse_error(self, failure):
         request = failure.request

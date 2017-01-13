@@ -10,3 +10,9 @@ like this to crontab::
 
 To analyze the results check `Link Status <notebooks/Link%20Status.ipynb>`_
 notebook.
+
+If soft404_ package is installed the result will contain
+probability of a page being 404, in addition to the returned status code
+and other info.
+
+.. _soft404: https://github.com/TeamHG-Memex/soft404
